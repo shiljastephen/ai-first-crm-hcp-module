@@ -70,7 +70,7 @@ def summary_node(state: CRMState):
 
     state["response"] = {
         "tool": "summary",
-        "summary": summarize(...)
+        "summary": summarize(state["user_message"])
     }
 
     return state
@@ -79,7 +79,7 @@ def followup_node(state: CRMState):
 
     state["response"] = {
         "tool": "followup",
-        "follow_up": followup(...)
+        "follow_up": followup(state["user_message"])
     }
 
     return state
@@ -88,7 +88,7 @@ def recommendation_node(state: CRMState):
 
     state["response"] = {
         "tool": "recommendation",
-        "recommendation": recommendation(...)
+        "recommendation": recommendation(state["user_message"])
     }
 
     return state

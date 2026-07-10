@@ -14,7 +14,7 @@ def chat(request: ChatRequest):
     result = graph.invoke(
         {
             "user_message": request.message,
-            "interaction_data": request.current_interaction
+            "interaction_data": request.current_interaction or {}
         }
     )
 
