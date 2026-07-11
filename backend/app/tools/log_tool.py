@@ -1,7 +1,7 @@
 import json
 
 from app.services.groq_service import llm
-
+from app.prompts.system_prompts import LOG_INTERACTION_PROMPT
 
 SYSTEM_PROMPT = """
 You are an AI CRM assistant.
@@ -32,5 +32,6 @@ def log_interaction(user_message: str):
     response = llm.invoke(
         SYSTEM_PROMPT + "\n\n" + user_message
     )
-
+    print("LLM Response:")
+    print(response.content)
     return json.loads(response.content)
