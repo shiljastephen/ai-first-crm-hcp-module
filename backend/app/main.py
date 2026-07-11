@@ -13,8 +13,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://ai-first-crm-hcp-module-eight.vercel.app/"
-        "https://ai-first-crm-hcp-module-eight.vercel.app/"
+        "https://ai-first-crm-hcp-module-eight.vercel.app",
+        "https://ai-first-crm-hcp-module-eight.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
