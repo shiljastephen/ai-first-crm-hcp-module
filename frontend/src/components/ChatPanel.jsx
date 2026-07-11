@@ -45,6 +45,8 @@ function ChatPanel() {
             switch (response.data.tool) {
 
                 case "log":
+                    console.log("AI Response:", response.data);
+                    console.log("Interaction Data:", response.data.data);
 
                     dispatch(
                         setInteraction(response.data.data)
