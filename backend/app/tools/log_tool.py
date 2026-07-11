@@ -32,6 +32,10 @@ def log_interaction(user_message: str):
     response = llm.invoke(
         SYSTEM_PROMPT + "\n\n" + user_message
     )
-    print("LLM Response:")
-    print(response.content)
-    return json.loads(response.content)
+   
+    print("========== LLM RESPONSE ==========")
+    print(repr(response.content))
+    print("==================================")
+    return {
+    "raw": response.content
+}
