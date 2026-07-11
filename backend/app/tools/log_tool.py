@@ -26,16 +26,18 @@ Return ONLY valid JSON.
 }
 """
 
-
 def log_interaction(user_message: str):
 
     response = llm.invoke(
-        SYSTEM_PROMPT + "\n\n" + user_message
+        LOG_INTERACTION_PROMPT + "\n\n" + user_message
     )
-   
-    print("========== LLM RESPONSE ==========")
-    print(repr(response.content))
-    print("==================================")
-    return {
-    "raw": response.content
-}
+
+    content = response.content.strip()
+
+    start = content.find("{")
+    end = content.rfind("}")
+
+    if start != -1 and end != -1:
+        content = content[start:end + 1]
+
+    return json.loads(content)
